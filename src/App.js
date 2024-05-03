@@ -6,14 +6,14 @@ import { useState } from "react";
 
 function App() {
 
-  const [numClics, setNumClics]
+  const [numClics, setNumClics] = useState(0);
 
   const manejarClic = () => {
-    console.log("Hola soy ManjerClic");
+    setNumClics(numClics +1);
   };
 
   const reiniciarContador = () => {
-    console.log("Hola soy reiniciarContador");
+    setNumClics(0);
   };
 
   return (
@@ -23,7 +23,7 @@ function App() {
         <img className="freecodecamp-logo" alt="logo-freecodecamp" src={logo} />
       </div>
       <div className="contenedor-principal">
-        <Contador numClics="2" />
+        <Contador numClics= { numClics } />
         <Boton texto="Clic" esBotonDeClic={true} manejarClic={manejarClic} />
         <Boton
           texto="Reiniciar"
